@@ -5,7 +5,7 @@ This repository contains the source code for a basic Snake game implemented in C
 **Building the project:**
 
 1. Download the repository.
-2. Open the project in Visual Studio using the `SnakeGame.sln` file.
+2. Open the project in Visual Studio using the `Snake_Game.sln` file.
 3. Build the project.
 
 **Note:** This project serves as a learning exercise and is not a fully featured game.
