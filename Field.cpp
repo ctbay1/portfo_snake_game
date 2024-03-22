@@ -81,19 +81,19 @@ void Field::place_snake()
 void Field::move_snake()
 {	
 	dir = _getch();
+
+	// reset field
+	for (int i{ 1 }; i < h - 1; i++) {
+		for (int j{ 1 }; j < v - 1; j++) {
+			if (field[i][j] != cheese) {
+				field[i][j] = " ";
+			}
+		}
+	}
 	
 	// W
 	if (dir == 'W' || dir == 'w') {
 		snake_head = "^";
-		
-		// reset field
-		for (int i{ 1 }; i < h - 1; i++) {
-			for (int j{ 1 }; j < v - 1; j++) {
-				if (field[i][j] != cheese) {
-					field[i][j] = " ";
-				}
-			}
-		}
 
 		snake_coord[0] += -snake_speed;
 		if (snake_coord[0] > 0) {
@@ -120,15 +120,6 @@ void Field::move_snake()
 	else if (dir == 'S' || dir == 's') {
 		snake_head = "v";
 
-		// reset field
-		for (int i{ 1 }; i < h - 1; i++) {
-			for (int j{ 1 }; j < v - 1; j++) {
-				if (field[i][j] != cheese) {
-					field[i][j] = " ";
-				}
-			}
-		}
-
 		snake_coord[0] += snake_speed;
 		if (snake_coord[0] < h-1) {
 			if (field[snake_coord[0]][snake_coord[1]] == cheese) {
@@ -151,15 +142,6 @@ void Field::move_snake()
 	// A
 	else if (dir == 'A' || dir == 'a') {
 		snake_head = "<";
-
-		// reset field
-		for (int i{ 1 }; i < h - 1; i++) {
-			for (int j{ 1 }; j < v - 1; j++) {
-				if (field[i][j] != cheese) {
-					field[i][j] = " ";
-				}
-			}
-		}
 
 		snake_coord[1] += -snake_speed;
 		if (snake_coord[1] > 0) {
@@ -184,14 +166,6 @@ void Field::move_snake()
 	// D
 	else if (dir == 'D' || dir == 'd') {
 		snake_head = ">";
-		// reset field
-		for (int i{ 1 }; i < h - 1; i++) {
-			for (int j{ 1 }; j < v - 1; j++) {
-				if (field[i][j] != cheese) {
-					field[i][j] = " ";
-				}
-			}
-		}
 
 		snake_coord[1] += snake_speed;
 		if (snake_coord[1] < v-1) {
